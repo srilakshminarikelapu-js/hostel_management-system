@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    View Complaints
+    {% endblock %}
+
+    {% block content %}
+
+    <h2 class="page-title">
+
+        Student Complaints
+
+    </h2>
+
+    <div class="card card-custom">
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+
+                <thead class="table-danger">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Complaint</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for c in complaints %}
+
+                    <tr>
+
+                        <td>{{ c.id }}</td>
+
+                        <td>{{ c.student.username }}</td>
+
+                        <td>{{ c.complaint_text }}</td>
+
+                        <td>
+
+                        <form method="POST"
+                            action="{% url 'update_complaint_status' c.id %}">
+
+                            {% csrf_token %}
+
+                            <select name="status"
+                                    class="form-select">
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="In Progress">
+                                    In Progress
+                                </option>
+
+                                <option value="Resolved">
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                            <button class="btn btn-success btn-sm mt-2">
+
+                                Update
+
+                            </button>
+
+                        </form>
+
+                        </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

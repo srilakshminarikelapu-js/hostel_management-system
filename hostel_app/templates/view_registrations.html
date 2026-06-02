@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Registrations</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Student Registrations
+    {% endblock %}
+
+    {% block content %}
+
+    <h2 class="page-title">
+
+        Room Registration Requests
+
+    </h2>
+
+    <div class="card card-custom">
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-primary">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Room Type</th>
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for r in registrations %}
+
+                    <tr>
+
+                        <td>{{ r.id }}</td>
+
+                        <td>{{ r.student.username }}</td>
+
+                        <td>{{ r.room_type }}</td>
+
+                        <td>{{ r.registration_date }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

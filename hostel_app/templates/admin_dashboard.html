@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Admin Dashboard
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="container-fluid">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h2 class="fw-bold">
+                Admin Dashboard
+            </h2>
+
+            <a href="{% url 'logout' %}"
+            class="btn btn-danger">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+
+            </a>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card text-white bg-primary shadow-lg border-0">
+
+                    <div class="card-body text-center">
+
+                        <i class="fa-solid fa-users fa-3x mb-3"></i>
+
+                        <h5>Total Students</h5>
+
+                        <h2>{{ total_students }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card text-white bg-success shadow-lg border-0">
+
+                    <div class="card-body text-center">
+
+                        <i class="fa-solid fa-file-signature fa-3x mb-3"></i>
+
+                        <h5>Registrations</h5>
+
+                        <h2>{{ total_registrations }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card text-white bg-warning shadow-lg border-0">
+
+                    <div class="card-body text-center">
+
+                        <i class="fa-solid fa-triangle-exclamation fa-3x mb-3"></i>
+
+                        <h5>Complaints</h5>
+
+                        <h2>{{ total_complaints }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card text-white bg-danger shadow-lg border-0">
+
+                    <div class="card-body text-center">
+
+                        <i class="fa-solid fa-bed fa-3x mb-3"></i>
+
+                        <h5>Allocated Rooms</h5>
+
+                        <h2>{{ total_allocations }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-md-3 mb-3">
+
+                <a href="{% url 'view_registrations' %}"
+                class="btn btn-primary w-100 p-3">
+
+                    <i class="fa-solid fa-users me-2"></i>
+                    View Registrations
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <a href="{% url 'view_complaints' %}"
+                class="btn btn-warning w-100 p-3">
+
+                    <i class="fa-solid fa-comments me-2"></i>
+                    View Complaints
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <a href="{% url 'room_allocation' %}"
+                class="btn btn-success w-100 p-3">
+
+                    <i class="fa-solid fa-door-open me-2"></i>
+                    Room Allocation
+
+                </a>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <a href="{% url 'view_allocations' %}"
+                class="btn btn-info w-100 p-3">
+
+                    <i class="fa-solid fa-building me-2"></i>
+                    View Allocations
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

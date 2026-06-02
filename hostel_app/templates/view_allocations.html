@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Allocations</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Room Allocations
+    {% endblock %}
+
+    {% block content %}
+
+    <h2 class="page-title">
+
+        Allocated Rooms
+
+    </h2>
+
+    <div class="card card-custom">
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <thead class="table-success">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Room Number</th>
+                        <th>Allocated Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for allocation in allocations %}
+
+                    <tr>
+
+                        <td>{{ allocation.id }}</td>
+
+                        <td>{{ allocation.student.username }}</td>
+
+                        <td>
+
+                            <span class="badge bg-primary">
+
+                                {{ allocation.room_number }}
+
+                            </span>
+
+                        </td>
+
+                        <td>{{ allocation.allocated_date }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

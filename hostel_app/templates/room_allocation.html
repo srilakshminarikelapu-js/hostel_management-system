@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Allocation</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Room Allocation
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card card-custom">
+
+                <div class="card-header bg-success text-white">
+
+                    <h3>
+
+                        <i class="fa-solid fa-door-open"></i>
+
+                        Room Allocation
+
+                    </h3>
+
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Select Student
+
+                            </label>
+
+                            <select name="student"
+                                    class="form-select">
+
+                                {% for student in students %}
+
+                                <option value="{{ student.id }}">
+
+                                    {{ student.username }}
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Room Number
+
+                            </label>
+
+                            <input type="text"
+                                name="room_number"
+                                class="form-control"
+                                placeholder="Enter Room Number">
+
+                        </div>
+
+                        <button class="btn btn-success">
+
+                            Allocate Room
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

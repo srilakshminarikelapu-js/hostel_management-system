@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Registration</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Room Registration
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card card-custom">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h3>
+                        <i class="fa-solid fa-bed"></i>
+                        Room Registration
+                    </h3>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Room Type
+                            </label>
+
+                            <select name="room_type"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select Room Type
+                                </option>
+
+                                <option value="Single">
+                                    Single Room
+                                </option>
+
+                                <option value="Double">
+                                    Double Sharing
+                                </option>
+
+                                <option value="Triple">
+                                    Triple Sharing
+                                </option>
+
+                                <option value="AC">
+                                    AC Room
+                                </option>
+
+                                <option value="Non AC">
+                                    Non AC Room
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <button class="btn btn-primary">
+                            Submit Registration
+                        </button>
+
+                        <a href="{% url 'student_dashboard' %}"
+                        class="btn btn-secondary">
+
+                            Back
+
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>

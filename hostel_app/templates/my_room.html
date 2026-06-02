@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Room</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h2>My Room Allocation</h2>
+
+            {% if allocation %}
+
+            <h4>
+                Room Number:
+                {{ allocation.room_number }}
+            </h4>
+
+            <h5>
+                Allocated Date:
+                {{ allocation.allocated_date }}
+            </h5>
+
+            {% else %}
+
+            <div class="alert alert-warning">
+
+                Room not allocated yet.
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+</body>
+</html>
